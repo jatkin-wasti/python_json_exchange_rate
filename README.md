@@ -9,7 +9,7 @@
 ### Downloading Json file
 - To be able to use the information stored in a json file we have to have access to it. Make sure you have a json file 
 storing the same information as in my ```exchange_rats.json``` file. One way to accomplish this is creating a new json 
-in your new pycharm project and copying + pasting the json file in this github repo
+file in your newly created pycharm project and copy + pasting from the json file found in this github repo
 ### Creating your class and methods
 - As stated above, we need to retrieve information from a json file, therefore we should import json at the top of our 
 python file
@@ -32,7 +32,7 @@ class ExchangeRates:
         return rates_dict  # Returns the dictionary holding all of the json data
 ```
 - Now we need to actually do something with the data we just retrieved
-- We're going to call the previous function and store the variable returned as a 
+- We're going to call the previous function and store the value returned as a new dictionary variable
 - We have to do this as rates_dict is only defined in local scope, meaning that we can only use it in the method that 
 created it (in this case that's the read_file method)
 - We then loop through the dictionary using the key (currency) and output the value for that key (how much one euro is 
@@ -45,10 +45,12 @@ worth in that currency)
             print(f"€1 is worth {rates_dict['rates'][key]} {key}")
 
 ```
+ We must include the ```['rates']``` index as we are working with a nested dictionary. Therefore, we must tell
+ python to look for key value pairs stored in the ```'rates'``` key
 - To run the methods we will create an instance of the class and run the rates_by_country method
 ```
 # Creating an instance of the class to test if it works
 test = ExchangeRates()
 test.rates_by_country()
 ```
-- When run, this nicely outputs the exchange rates for each country. Good job!
+- When run, this should nicely output the exchange rates for each country. Good job!
